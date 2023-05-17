@@ -1,3 +1,22 @@
+
+
+<nav>
+    <div class="nav-container">
+        <a href="/" class="nav-logo" title="Back to Homepage"
+            >Имя Фамилия</a
+        >
+        <div class="nav-links">
+            {#each nav as link}
+                <a href={link.href} class="link">{link.title}</a>
+            {/each}
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- Pages will be injected below -->
+    <slot />
+</div>
 <script>
     const nav = [
         {
@@ -24,26 +43,9 @@
             title: "temp",
             href: "/temp",
             isShow: false,
-        },
+        }
     ];
 </script>
-
-<nav>
-    <div class="nav-container">
-        <a href="/" class="nav-logo" title="Back to Homepage">Имя Фамилия</a>
-        <div class="nav-links">
-            {#if link.isShow}
-                <a href={link.href} class="link">{link.title}</a>
-            {/if}
-        </div>
-    </div>
-</nav>
-
-<div class="container">
-    <!-- Pages will be injected below -->
-    <slot />
-</div>
-
 <style>
     .container {
         max-width: 1400px;
